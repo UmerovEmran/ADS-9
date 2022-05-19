@@ -5,7 +5,7 @@
 #pragma once
 template<typename T>
 class BST {
-private:
+ private:
   struct Node {
   T value;
   int cnt = 0;
@@ -54,7 +54,7 @@ private:
           }
     }
 
-public:
+ public:
   BST() :root(nullptr) {}
   void Add(const T& val) {
     root = addNode(root, val);

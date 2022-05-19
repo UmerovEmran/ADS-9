@@ -2,26 +2,24 @@
 #include  "bst.h"
 
 BST<std::string> makeTree(const char* filename) {
-  BST<std::string> itog;
+  BST<std::string> vivod;
   std::ifstream file(filename);
-  if (!file) {
-    std::cout << "File error!" << std::endl;
-    return itog;
+  std::string word = "";
+  if (!file.is_open()) {
+    throw std::string("Error! File did not open!");
   }
-  char prom;
-  std::string prov = "";
   while (!file.eof()) {
-    prom = file.get();
-    if (prom <= 'Z' && prom >= 'A') {
-      prom = prom + ('a' - 'A');
+    word = "";
+    while (true) {
+      char plus = file.get();
+      if ((plus >= 65 && plus <= 90) || (plus >= 97 && plus <= 122)) {
+        word += tolower(plus);
+      } else {
+          break;
+        }
     }
-    if (prom <= 'z' && prom >= 'a') {
-      prov += prom;
-    } else {
-        itog.add(prov);
-        prov = "";
-      }
+    vivod.Add(word);
   }
-  return itog;
+  return vivod;
 }
 

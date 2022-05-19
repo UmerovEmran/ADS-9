@@ -1,8 +1,9 @@
 // Copyright 2021 NNTU-CS
 #include  "bst.h"
 
+
 BST<std::string> makeTree(const char* filename) {
-  BST<std::string> vivod;
+  BST<std::string> bst;
   std::ifstream file(filename);
   std::string word = "";
   if (!file.is_open()) {
@@ -18,8 +19,8 @@ BST<std::string> makeTree(const char* filename) {
           break;
         }
     }
-    vivod.Add(word);
+    bst.Add(word);
   }
-  return vivod;
+  return bst;
 }
 
